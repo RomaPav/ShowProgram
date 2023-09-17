@@ -12,13 +12,13 @@ import java.util.List;
 public class ShowRestController {
     @Autowired
     ShowService service;
-    @RequestMapping()
-    public List<Show> getShows(){
-        return service.getAll();
-    }
     @RequestMapping("hello")
     public String sayHello(){
         return "Hello world";
+    }
+    @RequestMapping()
+    public List<Show> getShows(){
+        return service.getAll();
     }
     @RequestMapping("{id}")
     Show showOne(@PathVariable String id) {
@@ -28,14 +28,8 @@ public class ShowRestController {
     void deleteOne(@PathVariable String id) {
         service.delete(id);
     }
-    @PostMapping("create")
-    Show create(@RequestBody Show show) {
-        service.create(show);
-        return  show;
-    }
-    @PutMapping("/update")
-    Show update(@RequestBody Show show) {
-        service.update(show);
-        return  show;
-    }
+    @PostMapping("")
+    Show create(@RequestBody Show show) {return service.create(show);}
+    @PutMapping("")
+    Show update(@RequestBody Show show) {return  service.update(show);}
 }
