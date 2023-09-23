@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SHOW</title>
+    <link rel="stylesheet" href="./showStyle.css" th:href="@{/showStyle.css}">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="items:${items}">
+            <td th:text="${items.getId()}"></td>
+            <form th:action="${'/ui/v1/show/edit/'+items.getId()}" style="width:100%" method="post">
+                <td>
+                    <input th:value="${items.getName()} " name="name">
+                </td>
+                <td>
+                    <input th:value="${items.getDescription()}"  name="description">
+                </td>
+                <td>
+                    <button type="submit" class="redact">Edit</button>
+                </td>
+            </form>
+            <td><a th:href="${'/ui/v1/show/del/'+items.getId()}"><button>Delete</button></a></td>
+        </tr>
+    </table><br>
+    <form th:action="${'/ui/v1/show/create'}" style="width:100%" method="post">
+        Name<br>
+        <input name="name"><br><br>
+        Description<br>
+        <input  name="description"><br><br>
+        <button type="submit" class="redact">Create</button>
+    </form>
+
+</body>
+</html>

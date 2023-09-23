@@ -29,6 +29,12 @@ public class Show {
         this.name = name;
         this.description = description;
     }
+
+    public Show(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(getId());

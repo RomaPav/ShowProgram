@@ -1,0 +1,19 @@
+table{
+    border: 1px solid;
+}
+table th{
+    font-size: 30px;
+    border: 1px solid;
+    padding: 5px;
+}
+table td{
+    padding: 5px;
+    border: 1px solid;
+}
+body{
+    background-color: rgb(0, 226, 226);
+    border-collapse: collapse;
+}
+a{
+    text-decoration:none;
+}
