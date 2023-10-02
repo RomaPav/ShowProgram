@@ -32,7 +32,6 @@ public class ShowGuiController {
         service.update(show);
         return "redirect:/ui/v1/show/";
     }
-
     @PostMapping("create")
     String create(@RequestParam("name") String name,
                 @RequestParam("description") String description){
