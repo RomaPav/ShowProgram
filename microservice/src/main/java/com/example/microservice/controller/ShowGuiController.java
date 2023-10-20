@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/ui/v1/show/")
 public class ShowGuiController {
+
+    private ShowService service;
     @Autowired
-    ShowService service;
+    public ShowGuiController(ShowService service) {
+        this.service = service;
+    }
+
     @GetMapping()
     String showAll(Model model){
         model.addAttribute("items",service.getAll());
